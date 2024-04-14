@@ -64,3 +64,9 @@ yarn-error.log
 
 # testing
 /coverage
+
+
+.prettierrc.js
+.eslintrc.js
+.watchmanconfig
+.bundle
