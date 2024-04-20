@@ -40,7 +40,7 @@ npm run ios
 
 # specify an ios simulator
 # the react-native part makes sure the cli is up to date
-npx react-native run-ios --simulator"INSERT IPHONE NAME"
+npx react-native run-ios --simulator="INSERT IPHONE NAME"
 
 # get available simulators
 xcrun simctl list devices
