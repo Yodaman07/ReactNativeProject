@@ -1,47 +1,51 @@
-import React from 'react';
+import React, { PropsWithChildren } from 'react';
 import {
     StyleSheet,
     Text,
     View,
-    TextInput
+    TextInput,
+    Button
 } from 'react-native';
 
 
 function Main(): React.JSX.Element {
     return (
+
         <View style={styles.container}>
-            <Text style={styles.content} > Hello </Text>
-            <UserInput />
+            <Text style={styles.title} > Welcome to a testing game! </Text>
+            <TextInput style={styles.input} placeholder='Enter Username Here'></TextInput>
+            <Button title='Submit' />
         </View >
     );
 }
 
 
-function UserInput(): React.JSX.Element {
-    return (
-        <View style={styles.container}>
-            <TextInput style={styles.input} placeholder='Enter text here'></TextInput>
-        </View>
-    );
-}
+// function SubmitBtn(): React.JSX.Element {
+//     return (    
+//     )
+// }
 
 
 
 const styles = StyleSheet.create({
 
     container: {
-        flex: 0.3, justifyContent: "center"
+        flex: 1, justifyContent: "center", alignSelf: "center"
     },
-    content: {
-        textAlignVertical: "center", textAlign: "center", fontSize: 32, backgroundColor: "blue"
+    title: {
+        fontSize: 24,
+        textAlign: "center",
+        marginBottom: 50,
+        // backgroundColor: "blue"
     },
     input: {
-        textAlignVertical: "center",
         textAlign: "center",
-        // fontSize: 24,
-        // backgroundColor: "green",
+        fontSize: 24,
         borderWidth: 1,
-        // flex: 0.3
+        borderRadius: 10,
+        marginBottom: 10,
+        // backgroundColor: "green"
+        // alignSelf: "center"
     }
 
 })
