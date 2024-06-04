@@ -1,47 +1,73 @@
-import { TabView, SceneMap } from 'react-native-tab-view';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
     StyleSheet,
     Text,
     View,
     TextInput,
-    Button
+    Button,
+    Image
 } from 'react-native';
-import { useState } from 'react';
+import { useState } from 'react'
 
+
+
+function Start(): React.JSX.Element {
+    const [signedIn, setSignedIn] = useState(false)
+    const signIn =
+        (<View style={{ backgroundColor: "white", height: "100%" }}>
+            <View style={styles.itemContainer}>
+                <Text style={styles.title} > Welcome to a testing game! </Text>
+                <TextInput style={styles.input} placeholder='Enter Username Here'></TextInput>
+                <Button title='Submit' onPress={() => setSignedIn(true)} />
+            </View >
+        </View>)
+
+    if (!signedIn) {
+        return (signIn)
+    } else {
+        return Game()
+    }
+}
+
+function Game(): React.JSX.Element {
+    return (
+        <View>
+            <Text>Hi</Text>
+        </View>
+    )
+}
+
+function Profile(): React.JSX.Element {
+    return (
+        <View style={{ backgroundColor: "white", height: "100%" }}>
+            <Text>Hello!</Text>
+        </View>
+    )
+}
 
 function Main(): React.JSX.Element {
-    const scene_1 = () => (<View style={styles.container}>
-        <Text style={styles.title} > Welcome to a testing game! </Text>
-        <TextInput style={styles.input} placeholder='Enter Username Here'></TextInput>
-        <Button title='Submit' />
-    </View >)
-
-    const scene_2 = () => (<View></View>)
-
-    const map = SceneMap({
-        "game": scene_1,
-        "settings": scene_2
-    });
-
-    const [index, setIndex] = useState(0)
-    const [routes] = useState(
-        [{ key: "game", title: "Game" }, { key: "settings", title: "Settings" }]
-    )
-
+    const Tab = createBottomTabNavigator()
     return (
-        <TabView //https://github.com/react-navigation/react-navigation/issues/11999
-            style={{ paddingTop: 40 }}
-            navigationState={{ index, routes }}
-            onIndexChange={setIndex}
-            renderScene={map}
-        />
+        <NavigationContainer>
+            <Tab.Navigator>
+                {/* https://stackoverflow.com/questions/60439210/how-to-pass-props-to-screen-component-with-a-tab-navigator pass props*/}
+                <Tab.Screen name="Start" component={Start} />
+                <Tab.Screen name='Profiles' component={Profile} options={{
+                    tabBarIcon: ({ focused, color, size }) => {
+                        return <Image
+                            style={{ width: size, height: size }}
+                            source={{ uri: 'https://cdn-icons-png.flaticon.com/256/1077/1077114.png' }}></Image>
+                    }
+                }} />
+            </Tab.Navigator>
+        </NavigationContainer>
     );
 }
 
-
 const styles = StyleSheet.create({
 
-    container: {
+    itemContainer: {
         flex: 1, justifyContent: "center", alignSelf: "center"
     },
     title: {
