@@ -8,14 +8,11 @@ import {
     Button,
     Image
 } from 'react-native';
-import { useState, useContext, createContext } from 'react'
+import { useState } from 'react'
 
 
-const UsernameContext = createContext("")
-
-function Start({ setUsername }): React.JSX.Element {
+function Start({ setUsername }: { setUsername: React.Dispatch<React.SetStateAction<string>> }): React.JSX.Element {
     const [signedIn, setSignedIn] = useState(false)
-    const ctx = useContext(UsernameContext)
 
     const signIn =
         (<View style={{ backgroundColor: "white", height: "100%" }}>
@@ -44,7 +41,7 @@ function Game(): React.JSX.Element {
     )
 }
 
-function Profile({ username }): React.JSX.Element {
+function Profile({ username }: { username: string }): React.JSX.Element {
     return (
         <View style={{ backgroundColor: "white", height: "100%" }}>
             <Text>Hello!</Text>
