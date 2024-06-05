@@ -8,18 +8,24 @@ import {
     Button,
     Image
 } from 'react-native';
-import { useState } from 'react'
+import { useState, useContext, createContext } from 'react'
 
 
+const UsernameContext = createContext("")
 
-function Start(): React.JSX.Element {
+function Start({ setUsername }): React.JSX.Element {
     const [signedIn, setSignedIn] = useState(false)
+    const ctx = useContext(UsernameContext)
+
     const signIn =
         (<View style={{ backgroundColor: "white", height: "100%" }}>
             <View style={styles.itemContainer}>
                 <Text style={styles.title} > Welcome to a testing game! </Text>
-                <TextInput style={styles.input} placeholder='Enter Username Here'></TextInput>
-                <Button title='Submit' onPress={() => setSignedIn(true)} />
+                <TextInput style={styles.input}
+                    placeholder='Enter Username Here'
+                    onChangeText={name => setUsername(name)}
+                    defaultValue={""} />
+                <Button title='Submit' onPress={() => { setSignedIn(true) }} />
             </View >
         </View>)
 
@@ -38,22 +44,30 @@ function Game(): React.JSX.Element {
     )
 }
 
-function Profile(): React.JSX.Element {
+function Profile({ username }): React.JSX.Element {
     return (
         <View style={{ backgroundColor: "white", height: "100%" }}>
             <Text>Hello!</Text>
+            <View style={{ flexDirection: "row" }}>
+                <Text>Username: </Text>
+                <Text>{username}</Text>
+            </View>
         </View>
     )
 }
 
 function Main(): React.JSX.Element {
     const Tab = createBottomTabNavigator()
+    const [username, setUsername] = useState(" ")
     return (
         <NavigationContainer>
             <Tab.Navigator>
                 {/* https://stackoverflow.com/questions/60439210/how-to-pass-props-to-screen-component-with-a-tab-navigator pass props*/}
-                <Tab.Screen name="Start" component={Start} />
-                <Tab.Screen name='Profiles' component={Profile} options={{
+                <Tab.Screen name="Start">
+                    {() => <Start setUsername={setUsername} />}
+                </Tab.Screen>
+
+                <Tab.Screen name='Profiles' children={() => <Profile username={username} />} options={{
                     tabBarIcon: ({ focused, color, size }) => {
                         return <Image
                             style={{ width: size, height: size }}
