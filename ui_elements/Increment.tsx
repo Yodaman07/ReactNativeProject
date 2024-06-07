@@ -1,10 +1,6 @@
 import {
-    StyleSheet,
-    Text,
-    View,
-    TouchableHighlight
+    StyleSheet, Text, View, TouchableHighlight
 } from 'react-native';
-import { useState } from 'react';
 
 type IncrementPropType = {
     label: string,
@@ -14,7 +10,7 @@ type IncrementPropType = {
 function Increment({ label, pressEvent }: IncrementPropType): React.JSX.Element {
     return (
         <TouchableHighlight style={styles.TouchableHighlight} underlayColor="#cfd8e8" onPress={pressEvent}>
-            <View style={styles.box}>
+            <View >
                 <Text style={styles.Text}>{label}</Text>
             </View>
         </TouchableHighlight>
@@ -23,7 +19,6 @@ function Increment({ label, pressEvent }: IncrementPropType): React.JSX.Element 
 
 const styles = StyleSheet.create({
     TouchableHighlight: {
-        // backgroundColor: "green"
         width: 50,
         height: 50,
         justifyContent: "center",
@@ -31,10 +26,6 @@ const styles = StyleSheet.create({
         borderWidth: 5,
         borderRadius: 10,
         backgroundColor: "#b6becc"
-    },
-
-    box: {
-
     },
 
     Text: {
