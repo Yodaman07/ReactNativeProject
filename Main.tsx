@@ -1,10 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import {
-    StyleSheet, Text, View, Image,
+    StyleSheet, Text, View, Image
 } from 'react-native';
 import { useState } from 'react'
 import Start from "./screens/Start.tsx"
+
+//https://rnfirebase.io/ for setting up firebase (doesnt for fully)
+// v fixes firebase errors when setting up
+//https://stackoverflow.com/questions/73416469/after-installing-react-native-firebase-app-its-build-will-failed-in-react-nativ
+
 
 function Profile({ username }: { username: string }): React.JSX.Element {
     return (
