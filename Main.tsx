@@ -6,7 +6,7 @@ import {
 import { useState } from 'react'
 import Start from "./screens/Start.tsx"
 
-//https://rnfirebase.io/ for setting up firebase (doesnt for fully)
+//https://rnfirebase.io/ for setting up firebase (doesnt for fully) (GoogleService-Info.plist is hidden btw)
 // v fixes firebase errors when setting up
 //https://stackoverflow.com/questions/73416469/after-installing-react-native-firebase-app-its-build-will-failed-in-react-nativ
 

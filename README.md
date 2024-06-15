@@ -39,8 +39,8 @@ yarn android
 npm run ios
 
 # specify an ios simulator
-# the react-native part makes sure the cli is up to date
-npx react-native run-ios --simulator="INSERT IPHONE NAME"
+# the react-native@latest part makes sure the cli is up to date
+npx react-native@latest run-ios --simulator="INSERT IPHONE NAME"
 
 # get available simulators
 xcrun simctl list devices
@@ -58,7 +58,7 @@ This is one way to run your app — you can also run it directly from within And
 
 Now that you have successfully run the app, let's modify it.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
+1. Open `Main.tsx` in your text editor of choice and edit some lines.
 2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
    For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
