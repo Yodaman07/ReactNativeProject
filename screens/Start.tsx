@@ -3,6 +3,8 @@ import {
 } from 'react-native'
 import { useState } from 'react'
 import Increment from '../ui_elements/Increment';
+// import firestore from '@react-native-firebase/firestore';
+
 
 type GamePropType = {
     count: number,
@@ -24,6 +26,29 @@ export default function Start({ setUsername }: { setUsername: SignInPropTypes["s
     }
 }
 function SignIn({ setUsername, setSignedIn }: SignInPropTypes): React.JSX.Element {
+    // const data = async () => {
+    //     // const userdata = getFirestore().collection("Users").doc("gWPYtOFTrVRMLPyUTcZD").get()
+    //     // return userdata
+
+    //     const userdata = await firestore().collection("Users").doc("gWPYtOFTrVRMLPyUTcZD").onSnapshot(doc => {
+    //         console.log(doc.name)
+    //     })
+    // }
+    // console.log(data)
+    console.log("aa")
+
+    // firestore()
+    //     .collection('Users')
+    //     .doc('gWPYtOFTrVRMLPyUTcZD')
+    //     .get()
+    //     .then(documentSnapshot => {
+    //         console.log('User exists: ', documentSnapshot.exists);
+
+    //         if (documentSnapshot.exists) {
+    //             console.log('User data: ', documentSnapshot.data());
+    //         }
+    //     });
+
     return (
         <View style={styles.bg}>
             <View style={styles.itemContainer}>
@@ -32,7 +57,9 @@ function SignIn({ setUsername, setSignedIn }: SignInPropTypes): React.JSX.Elemen
                     placeholder='Enter Username Here'
                     onChangeText={name => setUsername(name)}
                     defaultValue={""} />
-                <Button title='Submit' onPress={() => { setSignedIn(true) }} />
+                <Button title='Submit' onPress={() => {
+                    setSignedIn(true);
+                }} />
             </View >
         </View>
     )
