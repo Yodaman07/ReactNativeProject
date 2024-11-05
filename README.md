@@ -1,79 +1,69 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# ReactNativeProject
+A small test project to get myself familiar with React Native
 
-# Getting Started
+# Platforms
+MacOS (Supported and Working)
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+Andriod (Untested)
 
-## Step 1: Start the Metro Server
+Web (Untested)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+![example workflow](https://github.com/Yodaman07/ReactNativeProject/actions/workflows/codeql.yml/badge.svg)
+
+# Helpful Commands
 
 ```bash
-# using npm
+# specify an ios simulator
+# the react-native@latest part makes sure the cli is up to date
+npx react-native@latest run-ios --simulator="INSERT IPHONE NAME"
+
+#basic ios
+npx react-native run-ios
+
+# runs metro server for debugging/running in ios or android
 npm start
 
-# OR using Yarn
-yarn start
+# checks the environment is configured
+npx react-native doctor
+
+# finds outdated npm packages
+npm outdated
+
+# regularly and forcefully updates npm packages
+npm update
+
+npm update --force
+
+# get available simulators
+xcrun simctl list devices
+
+# goes into the ios directory
+cd ios
+
+pod repo update
+# or
+pod update
+# both will update the podfile.lock of what packages are needed (to my knowledge)
+
+pod install
+# updates/installs all necessary pods from the podfile.lock
+
+pod install --repo-update
+# runs both tasks at the same time
+
 ```
 
-## Step 2: Start your Application
+# Libraries
+## ReactNavigation
+[Documentation](https://reactnavigation.org/) 
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+Installed with `npm install @react-navigation/native`
 
-### For Android
+## ReactNativeFirebase
+[Documentation](https://rnfirebase.io/)
 
-```bash
-# using npm
-npm run android
+Installed with the guide on the website (some of the methods to set up are incorrect, so I would recomend followng [this](https://stackoverflow.com/questions/73416469/after-installing-react-native-firebase-app-its-build-will-failed-in-react-nativ) guide as well
 
-# OR using Yarn
-yarn android
-```
 
-### For iOS
 
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
