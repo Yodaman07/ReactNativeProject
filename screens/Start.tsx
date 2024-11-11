@@ -4,7 +4,7 @@ import {
 import { useState } from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import Increment from '../ui_elements/Increment';
-// import firestore from '@react-native-firebase/firestore';
+import firestore from '@react-native-firebase/firestore';
 
 
 type GamePropType = {
@@ -26,6 +26,19 @@ export default function Start({ setUsername }: { setUsername: SignInPropTypes["s
         return (<Game count={count} setCount={setCount} />)
     }
 }
+
+// firestore()
+//     .collection('Users')
+//     .doc('gWPYtOFTrVRMLPyUTcZD')
+//     .get()
+//     .then(documentSnapshot => {
+//         console.log('User exists: ', documentSnapshot.exists);
+
+//         if (documentSnapshot.exists) {
+//             console.log('User data: ', documentSnapshot.data());
+//         }
+//     });
+
 function SignIn({ setUsername, setSignedIn }: SignInPropTypes): React.JSX.Element {
     // const data = async () => {
     //     // const userdata = getFirestore().collection("Users").doc("gWPYtOFTrVRMLPyUTcZD").get()
@@ -37,6 +50,7 @@ function SignIn({ setUsername, setSignedIn }: SignInPropTypes): React.JSX.Elemen
     // }
     // console.log(data)
     console.log("aa")
+    // const user = firestore().collection('Users').doc('gWPYtOFTrVRMLPyUTcZD').get();
 
     // firestore()
     //     .collection('Users')

@@ -84,9 +84,9 @@ Here are the necessary commands to install ReactNativeFirebase
 
 `npm install --save @react-native-firebase/app`
 
+`npm install @react-native-firebase/firestore`
 
-
-Installed with the guide on the website (some of the methods to set up are incorrect, so I would recommend following [this](https://stackoverflow.com/questions/73416469/after-installing-react-native-firebase-app-its-build-will-failed-in-react-nativ) guide as well )
+Installed with the guide on the website (some of the methods to set up are incorrect, so I would recommend following [this](https://stackoverflow.com/questions/73416469/after-installing-react-native-firebase-app-its-build-will-failed-in-react-nativ) guide as well
 
 
 
