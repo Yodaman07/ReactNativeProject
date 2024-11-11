@@ -58,12 +58,21 @@ pod install --repo-update
 ## ReactNavigation
 [Documentation](https://reactnavigation.org/) 
 
-Installed with `npm install @react-navigation/native`
+Install the used libraries with these commands:
+
+`npm install @react-navigation/native`
+
+`npm install @react-navigation/bottom-tabs`
+
+`npm install react-native-safe-area-context`
+
+`npm install react-native-screens`
+`npx pod-install ios`
 
 ## ReactNativeFirebase
 [Documentation](https://rnfirebase.io/)
 
-Installed with the guide on the website (some of the methods to set up are incorrect, so I would recomend followng [this](https://stackoverflow.com/questions/73416469/after-installing-react-native-firebase-app-its-build-will-failed-in-react-nativ) guide as well
+Installed with the guide on the website (some of the methods to set up are incorrect, so I would recommend following [this](https://stackoverflow.com/questions/73416469/after-installing-react-native-firebase-app-its-build-will-failed-in-react-nativ) guide as well
 
 
 
