@@ -1,5 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 import {
     StyleSheet, Text, View, Image
 } from 'react-native';
@@ -20,24 +22,27 @@ function Profile({ username }: { username: string }): React.JSX.Element {
 
 function Main(): React.JSX.Element {
     const Tab = createBottomTabNavigator()
+
     const [username, setUsername] = useState(" ")
     return (
-        <NavigationContainer>
-            <Tab.Navigator>
-                {/* https://stackoverflow.com/questions/60439210/how-to-pass-props-to-screen-component-with-a-tab-navigator pass props*/}
-                <Tab.Screen name="Start">
-                    {() => <Start setUsername={setUsername} />}
-                </Tab.Screen>
+        <SafeAreaProvider>
+            <NavigationContainer>
+                <Tab.Navigator>
+                    {/* https://stackoverflow.com/questions/60439210/how-to-pass-props-to-screen-component-with-a-tab-navigator pass props*/}
+                    <Tab.Screen name="Start">
+                        {() => <Start setUsername={setUsername} />}
+                    </Tab.Screen>
 
-                <Tab.Screen name='Profiles' children={() => <Profile username={username} />} options={{
-                    tabBarIcon: ({ focused, color, size }) => {
-                        return <Image
-                            style={{ width: size, height: size }}
-                            source={{ uri: 'https://cdn-icons-png.flaticon.com/256/1077/1077114.png' }}></Image>
-                    }
-                }} />
-            </Tab.Navigator>
-        </NavigationContainer>
+                    <Tab.Screen name='Profiles' children={() => <Profile username={username} />} options={{
+                        tabBarIcon: ({ focused, color, size }) => {
+                            return <Image
+                                style={{ width: size, height: size }}
+                                source={{ uri: 'https://cdn-icons-png.flaticon.com/256/1077/1077114.png' }}></Image>
+                        }
+                    }} />
+                </Tab.Navigator>
+            </NavigationContainer>
+        </SafeAreaProvider>
     );
 }
 
